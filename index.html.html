@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TVer広告のブランドリフト調査 | 楽天インサイト</title>
+  <meta name="description" content="TVer広告の態度変容を楽天インサイトの高品質パネルで可視化。広告接触者への調査をワンストップで提供。認知・好意・利用意向の変化を把握し、広告効果をより明確にします。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a3794;
+      --navy-dark: #132a70;
+      --navy-deep: #0e1f52;
+      --navy-light: #e8eef8;
+      --accent: #1a3794;
+      --red: #bf0000;
+      --dark: #222222;
+      --gray: #555555;
+      --gray-light: #f4f6fb;
+      --gray-mid: #e8eef8;
+      --border: #d0d8e8;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+      color: var(--dark);
+      line-height: 1.8;
+      font-size: 15px;
+      background: var(--white);
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-rakuten {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: -0.01em;
+    }
+    .logo-rakuten .r-red { color: var(--red); }
+    .logo-rakuten .r-navy { color: var(--navy); }
+    .logo-sub {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.06em;
+      border-left: 1px solid var(--border);
+      padding-left: 16px;
+    }
+
+    /* ========== PAGE NAV ========== */
+    .page-nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--navy);
+      padding: 0 40px;
+    }
+    .page-nav ul {
+      list-style: none;
+      display: flex;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .page-nav a {
+      display: block;
+      color: var(--navy);
+      font-size: 13px;
+      text-decoration: none;
+      padding: 13px 20px;
+      transition: color 0.15s, background 0.15s;
+      letter-spacing: 0.04em;
+      font-weight: bold;
+    }
+    .page-nav a:hover {
+      color: var(--navy-dark);
+      border-bottom: 2px solid var(--navy);
+      margin-bottom: -2px;
+    }
+
+    /* ========== HERO (KV) ========== */
+    .hero {
+      background: var(--gray-light);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 44%;
+      background: linear-gradient(135deg, var(--gray-mid) 0%, #c8d4f0 100%);
+      clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .hero-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--navy-light);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 14px;
+      border: 1px solid var(--navy);
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .hero-eyebrow {
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 3vw, 36px);
+      font-weight: bold;
+      line-height: 1.45;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+      color: var(--dark);
+      max-width: 560px;
+      border-left: 4px solid var(--navy);
+      padding-left: 16px;
+    }
+    .hero h1 strong {
+      color: var(--navy);
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--gray);
+      max-width: 520px;
+      line-height: 1.9;
+      margin-bottom: 36px;
+    }
+    .hero-toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-bottom: 36px;
+      max-width: 560px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+    .hero-toc a {
+      background: var(--white);
+      border: none;
+      font-size: 13px;
+      padding: 10px 20px;
+      color: var(--navy);
+      font-weight: bold;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s;
+      flex: 1;
+    }
+    .hero-toc a::before {
+      content: "▼";
+      font-size: 9px;
+      color: var(--navy);
+    }
+    .hero-toc a:hover {
+      background: var(--navy-light);
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: bold;
+      padding: 14px 40px;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: var(--navy-dark); }
+
+    /* ========== SECTION COMMON ========== */
+    .sec { padding: 72px 40px; }
+    .sec-gray { background: var(--gray-light); }
+    .container { max-width: 960px; margin: 0 auto; }
+
+    .sec-head {
+      margin-bottom: 48px;
+    }
+    .sec-en {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.25em;
+      color: var(--navy);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .sec-title {
+      font-size: clamp(18px, 2.4vw, 26px);
+      font-weight: bold;
+      line-height: 1.4;
+      color: var(--dark);
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--navy);
+      display: inline-block;
+    }
+    .sec-lead {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+      margin-top: 20px;
+      max-width: 700px;
+    }
+
+    /* ========== ISSUES ========== */
+    .issue-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .issue-item {
+      background: var(--white);
+      padding: 28px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .issue-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--navy-light);
+      border: 2px solid var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+    .issue-item p {
+      font-size: 14px;
+      line-height: 1.7;
+      padding-top: 6px;
+    }
+
+    /* ========== SOLUTION BAND ========== */
+    .solution-band {
+      background: var(--navy);
+      padding: 40px 40px;
+      text-align: center;
+    }
+    .solution-band h2 {
+      color: var(--white);
+      font-size: clamp(16px, 2.2vw, 22px);
+      font-weight: bold;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+    .solution-band h2 span {
+      display: block;
+      font-size: clamp(12px, 1.4vw, 14px);
+      font-weight: normal;
+      opacity: 0.88;
+      margin-top: 8px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ========== METHOD ========== */
+    .method-num {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.2em;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .method-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+    .method-block:last-of-type { border-bottom: 1px solid var(--border); }
+    @media (max-width: 660px) { .method-block { grid-template-columns: 1fr; gap: 28px; } }
+    .method-h {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .method-h strong { color: var(--navy); }
+    .method-body {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.9;
+    }
+    .method-body p + p { margin-top: 10px; }
+    .method-visual {
+      background: var(--gray-light);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+    }
+    .vs-row {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+    .vs-cell {
+      flex: 1;
+      padding: 16px 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+    .vs-cell.exposed {
+      background: var(--navy);
+      color: var(--white);
+    }
+    .vs-cell.non-exposed {
+      background: var(--gray-mid);
+      color: var(--dark);
+    }
+    .vs-sep {
+      width: 1px;
+      background: var(--border);
+    }
+    .vs-label {
+      font-size: 11px;
+      text-align: center;
+      color: var(--gray);
+      margin: 10px 0 6px;
+      letter-spacing: 0.1em;
+    }
+    .lift-box {
+      background: var(--white);
+      border: 1px solid var(--navy);
+      padding: 16px;
+      margin-top: 12px;
+    }
+    .lift-box-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--navy);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .lift-row {
+      display: flex;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .lift-cell {
+      flex: 1;
+      background: var(--white);
+      padding: 10px 4px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .lift-cell span {
+      display: block;
+      font-size: 18px;
+      font-weight: bold;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    /* ========== FLOW ========== */
+    .flow-list {
+      counter-reset: flow;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      background: var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 760px) {
+      .flow-list { grid-template-columns: 1fr; }
+    }
+    .flow-item {
+      background: var(--white);
+      padding: 28px 18px;
+      position: relative;
+      text-align: center;
+    }
+    .flow-item:not(:last-child)::after {
+      content: "›";
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+      color: var(--navy);
+      z-index: 1;
+    }
+    @media (max-width: 760px) {
+      .flow-item:not(:last-child)::after { content: "↓"; right: auto; left: 50%; bottom: -12px; top: auto; transform: translateX(-50%); font-size: 18px; }
+    }
+    .flow-num {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: bold;
+      line-height: 30px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+    }
+    .flow-item h4 {
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      line-height: 1.4;
+      color: var(--dark);
+    }
+    .flow-item p {
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ========== STRENGTHS ========== */
+    .strength-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    @media (max-width: 860px) { .strength-list { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .strength-list { grid-template-columns: 1fr; } }
+    .strength-item {
+      background: var(--white);
+      padding: 32px 28px;
+    }
+    .strength-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: var(--navy);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .strength-num {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .strength-item h3 {
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      color: var(--dark);
+      border-left: 3px solid var(--navy);
+      padding-left: 10px;
+    }
+    .strength-item p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .data-note {
+      font-size: 10px;
+      color: #999;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact-sec {
+      background: var(--gray-light);
+      border-top: 3px solid var(--navy);
+    }
+    .contact-sec .sec-title { color: var(--dark); }
+
+    .form-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 48px;
+      margin-top: 32px;
+    }
+    @media (max-width: 640px) { .form-wrap { padding: 24px 18px; } }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 32px;
+    }
+    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-grid .full { grid-column: 1 / -1; }
+
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group label {
+      font-size: 13px;
+      font-weight: bold;
+      color: var(--dark);
+    }
+    .req {
+      background: var(--red);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: bold;
+      padding: 1px 5px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      background: var(--white);
+      transition: border-color 0.15s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--red); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 28px auto 0;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: bold;
+      padding: 16px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: background 0.15s;
+    }
+    .submit-btn:hover { background: var(--navy-dark); }
+    .privacy-note {
+      font-size: 11px;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 12px;
+    }
+    .privacy-note a { color: var(--navy); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 28px 40px;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.9); }
+  </style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="logo-wrap">
+    <span class="logo-rakuten"><span class="r-red">Rakuten</span> <span class="r-navy">Insight</span></span>
+    <span class="logo-sub">デジタルマーケティング PDCA支援</span>
+  </div>
+</header>
+
+<!-- ========== PAGE NAV ========== -->
+<nav class="page-nav">
+  <ul>
+    <li><a href="#challenge">課題</a></li>
+    <li><a href="#method">分析方法</a></li>
+    <li><a href="#flow">ご利用の流れ</a></li>
+    <li><a href="#strength">楽天インサイトの強み</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<!-- ========== HERO (KV) ========== -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">R-Brand Lift Survey for TVer</p>
+    <h1>
+      TVer広告の<strong>「態度変容」</strong>を、<br>
+      楽天インサイトの高品質パネルで可視化
+    </h1>
+    <p class="hero-sub">
+      楽天インサイトが広告接触者へのブランドリフト調査をワンストップで提供。<br>
+      認知・好意・利用意向の変化を把握し、広告効果をより明確にします。
+    </p>
+    <div class="hero-toc">
+      <a href="#method">分析方法</a>
+      <a href="#flow">ご利用の流れ</a>
+      <a href="#strength">楽天インサイトの強み</a>
+    </div>
+    <a href="#contact" class="btn-primary">お問い合わせ・資料請求</a>
+  </div>
+</section>
+
+<!-- ========== ISSUES ========== -->
+<section class="sec sec-gray" id="challenge">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-en">Challenge</span>
+      <h2 class="sec-title">こんな課題はありませんか？</h2>
+    </div>
+    <div class="issue-list">
+      <div class="issue-item">
+        <div class="issue-icon">？</div>
+        <p>TVer広告配信後、実際にどんな効果があったかわからない</p>
+      </div>
+      <div class="issue-item">
+        <div class="issue-icon">？</div>
+        <p>テレビCMや他デジタル媒体との比較検証が難しい</p>
+      </div>
+      <div class="issue-item">
+        <div class="issue-icon">？</div>
+        <p>次回提案につながる"定量的な根拠"がほしい</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SOLUTION BAND ========== -->
+<div class="solution-band">
+  <h2>
+    その課題、楽天インサイトが解決します。
+    <span>TVer広告に特化したブランドリフト調査をワンストップで提供</span>
+  </h2>
+</div>
+
+<!-- ========== METHOD ========== -->
+<section class="sec" id="method">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-en">Method</span>
+      <h2 class="sec-title">広告接触者の分析方法</h2>
+      <p class="sec-lead">
+        接触ログを活用することで、従来のアンケートだけでは把握が難しかった「実際の広告接触者」に対する調査が可能に。
+        TVer広告の接触者・非接触者へアンケートを実施し、ブランドリフトを定量的に可視化します。
+      </p>
+    </div>
+
+    <div class="method-block">
+      <div>
+        <p class="method-num">Method 01</p>
+        <h3 class="method-h">"推定"ではなく、<br><strong>事実ベースの広告接触分析</strong>へ</h3>
+        <div class="method-body">
+          <p>楽天インサイトが保有する大規模かつ高品質なモニターパネルと、TVerの広告接触ログを連携。実際にTVer広告を見たユーザーを正確に捕捉し、認知・興味関心・購入意向などの変化を定量的に比較します。</p>
+          <p>テレビCMや他デジタル媒体とのクロス比較も可能。次回の提案資料に使える、信頼性の高い効果検証レポートを提供します。</p>
+        </div>
+      </div>
+      <div class="method-visual">
+        <p class="vs-label">■ 調査スキーム</p>
+        <div class="vs-row">
+          <div class="vs-cell exposed">TVer広告<br>接触者</div>
+          <div class="vs-sep"></div>
+          <div class="vs-cell non-exposed">TVer広告<br>非接触者</div>
+        </div>
+        <p class="vs-label" style="margin-top:14px;">↓ アンケート実施・比較</p>
+        <div class="lift-box">
+          <p class="lift-box-title">ブランドリフトを可視化</p>
+          <div class="lift-row">
+            <div class="lift-cell"><span>▲</span>認知リフト</div>
+            <div class="lift-cell"><span>▲</span>好意リフト</div>
+            <div class="lift-cell"><span>▲</span>利用意向<br>リフト</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div>
+        <p class="method-num">Method 02</p>
+        <h3 class="method-h">楽天グループデータと<br><strong>連携した多角的な効果検証</strong></h3>
+        <div class="method-body">
+          <p>さらに、楽天インサイトが保有する大規模かつ高品質なモニターパネルを活用することで、信頼性の高い効果検証を実現。</p>
+          <p>購買データやウェブログデータなど楽天グループが保有するデータを組み合わせ、購買リフト・サーチリフトなどの指標も導出可能です。</p>
+        </div>
+      </div>
+      <div class="method-visual">
+        <p class="vs-label">■ 楽天グループデータ活用イメージ</p>
+        <div class="lift-box" style="border-color: #dddddd;">
+          <div class="lift-row">
+            <div class="lift-cell" style="background:#f4f6fb;"><span style="color:#1a3794; font-size:14px;">購買</span>リフト</div>
+            <div class="lift-cell" style="background:#f4f6fb;"><span style="color:#1a3794; font-size:14px;">サーチ</span>リフト</div>
+            <div class="lift-cell" style="background:#f4f6fb;"><span style="color:#1a3794; font-size:14px;">ブランド</span>リフト</div>
+          </div>
+        </div>
+        <p style="font-size:11px; color:#999; margin-top:10px; text-align:center;">楽天IDで横断的に分析</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FLOW ========== -->
+<section class="sec sec-gray" id="flow">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-en">Flow</span>
+      <h2 class="sec-title">ご利用の流れ</h2>
+    </div>
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="flow-num">1</div>
+        <h4>お問い合わせ</h4>
+        <p>本ページのフォームよりご連絡ください。キャンペーン概要等をヒアリングします。</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">2</div>
+        <h4>タグ設置・<br>広告配信</h4>
+        <p>TVer広告配信設定（タグ連携等）を行います。</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">3</div>
+        <h4>調査設計</h4>
+        <p>ご要望に合わせて調査票・対象者条件をサポートします。</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">4</div>
+        <h4>実査</h4>
+        <p>広告配信期間中または終了後にアンケートを配信・回収します。</p>
+      </div>
+      <div class="flow-item">
+        <div class="flow-num">5</div>
+        <h4>レポート<br>納品</h4>
+        <p>集計・分析を行い、リフトをまとめたレポートを提出します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STRENGTHS ========== -->
+<section class="sec" id="strength">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-en">Strength</span>
+      <h2 class="sec-title">楽天インサイトの強み</h2>
+      <p class="sec-lead">楽天グループが保有する大規模データと高品質パネルで、TVer広告効果の信頼性を高めます。</p>
+    </div>
+    <div class="strength-list">
+      <div class="strength-item">
+        <p class="strength-label">ID Coverage</p>
+        <div class="strength-num">220万+</div>
+        <h3>広告接触者の捕捉力</h3>
+        <p>cookieIDは220万、ADID/IDFAは170万を誇る（ユニークIDベース）。TVer広告接触者を高精度に特定します。<br><span class="data-note">※2024年1月現在</span></p>
+      </div>
+      <div class="strength-item">
+        <p class="strength-label">Speed</p>
+        <div class="strength-num">最短5営業日</div>
+        <h3>圧倒的なスピード</h3>
+        <p>調査票入稿から最短5営業日でお手元に回収データと集計表をご納品。スピーディな次回提案が可能になります。</p>
+      </div>
+      <div class="strength-item">
+        <p class="strength-label">Data</p>
+        <h3>楽天グループデータ活用</h3>
+        <p>購買データやウェブログデータなど楽天グループが保有するデータを活用し、購買リフト・サーチリフトなどの結果も導出できます。</p>
+      </div>
+      <div class="strength-item">
+        <p class="strength-label">Support</p>
+        <h3>柔軟な調査設計とサポート</h3>
+        <p>中小代理店様でも安心。専任担当がキャンペーン内容に合わせた調査設計から納品までワンストップでサポートします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT FORM ========== -->
+<section class="sec contact-sec" id="contact">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-en">Contact</span>
+      <h2 class="sec-title">お問い合わせ・資料請求</h2>
+      <p class="sec-lead">TVer広告のブランドリフト調査に関するご相談・資料請求はこちらからお気軽にどうぞ。</p>
+    </div>
+
+    <div class="form-wrap">
+      <form>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>会社名<span class="req">必須</span></label>
+            <input type="text" placeholder="例：株式会社〇〇">
+          </div>
+          <div class="form-group">
+            <label>ご担当者名<span class="req">必須</span></label>
+            <input type="text" placeholder="例：山田 太郎">
+          </div>
+          <div class="form-group">
+            <label>メールアドレス<span class="req">必須</span></label>
+            <input type="email" placeholder="例：example@company.co.jp">
+          </div>
+          <div class="form-group">
+            <label>電話番号</label>
+            <input type="tel" placeholder="例：03-0000-0000">
+          </div>
+          <div class="form-group full">
+            <label>お問い合わせ種類<span class="req">必須</span></label>
+            <select>
+              <option value="">選択してください</option>
+              <option>サービス資料・媒体資料がほしい</option>
+              <option>具体的な案件の相談・見積もり依頼</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>お問い合わせ内容・詳細</label>
+            <textarea placeholder="ご要望やご質問など、自由にご記入ください。"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">送信する</button>
+        <p class="privacy-note">
+          送信することで<a href="#">プライバシーポリシー</a>に同意したものとみなします。
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <p>© 2024 Rakuten Insight, Inc. All rights reserved.</p>
+  <p style="margin-top:8px;">
+    <a href="#">プライバシーポリシー</a> ／ <a href="#">会社概要</a>
+  </p>
+</footer>
+
+</body>
+</html>
