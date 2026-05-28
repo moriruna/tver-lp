@@ -42,11 +42,40 @@
       padding: 0 40px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       height: 64px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-cta .tel {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+    .header-cta .tel strong {
+      font-size: 16px;
+      color: var(--navy);
+      letter-spacing: .02em;
+    }
+    .btn-header {
+      display: inline-block;
+      background: var(--navy);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .btn-header:hover { background: var(--navy-dark); }
     .logo-wrap {
       display: flex;
       align-items: center;
@@ -116,6 +145,45 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .hero-left { flex: 1; min-width: 0; }
+    .hero-right {
+      width: 280px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-badge {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(4px);
+    }
+    .hero-badge .badge-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .hero-badge .badge-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.5;
     }
     .hero-tag {
       display: inline-block;
@@ -301,15 +369,13 @@
       margin-bottom: 8px;
     }
     .method-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: start;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
       padding: 40px 0;
       border-top: 1px solid var(--border);
     }
     .method-block:last-of-type { border-bottom: 1px solid var(--border); }
-    @media (max-width: 660px) { .method-block { grid-template-columns: 1fr; gap: 28px; } }
     .method-h {
       font-size: 18px;
       font-weight: bold;
@@ -511,6 +577,39 @@
       border-top: 3px solid var(--navy);
     }
     .contact-sec .sec-title { color: var(--dark); }
+    .cta-banner {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+      border-radius: 12px;
+      padding: 56px 48px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    .cta-banner .cta-catch {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: .04em;
+      margin-bottom: 16px;
+    }
+    .cta-banner .cta-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,.8);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: #fff;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 18px 52px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: .04em;
+      transition: opacity .2s;
+    }
+    .btn-cta:hover { opacity: .85; }
 
     .form-wrap {
       background: var(--white);
@@ -609,6 +708,9 @@
     <span style="color:#ccc; font-size:18px; margin:0 10px;">|</span>
     <span style="font-size:13px; font-weight:700; color:var(--navy);">広告効果測定サービス</span>
   </div>
+  <div class="header-cta">
+    <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-header">お問い合わせ・資料請求</a>
+  </div>
 </header>
 
 <!-- ========== PAGE NAV ========== -->
@@ -625,21 +727,41 @@
 <!-- ========== HERO (KV) ========== -->
 <section class="hero">
   <div class="hero-inner">
-    <p class="hero-eyebrow">R-Brand Lift Survey for TVer</p>
-    <h1>
-      TVer広告の<strong>「態度変容」</strong>を、<br>
-      楽天インサイトの高品質パネルで可視化
-    </h1>
-    <p class="hero-sub">
-      楽天インサイトが広告接触者へのブランドリフト調査をワンストップで提供。<br>
-      認知・好意・利用意向の変化を把握し、広告効果をより明確にします。
-    </p>
-    <div class="hero-toc">
-      <a href="#method">分析方法</a>
-      <a href="#flow">ご利用の流れ</a>
-      <a href="#strength">楽天インサイトの強み</a>
+    <div class="hero-left">
+      <p class="hero-eyebrow">R-Brand Lift Survey for TVer</p>
+      <h1>
+        TVer広告の<strong>ブランド効果を</strong><br>
+        <strong>調査で可視化</strong>
+      </h1>
+      <p class="hero-sub">
+        楽天インサイトが広告接触者へのブランドリフト調査をワンストップで提供。<br>
+        認知・好意・利用意向の変化を把握し、広告効果をより明確にします。
+      </p>
+      <div class="hero-toc">
+        <a href="#method">分析方法</a>
+        <a href="#flow">ご利用の流れ</a>
+        <a href="#strength">楽天インサイトの強み</a>
+      </div>
+      <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-primary">お問い合わせ・資料請求</a>
     </div>
-    <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-primary">お問い合わせ・資料請求</a>
+    <div class="hero-right">
+      <div class="hero-badge">
+        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
+        <div class="badge-text">広告接触者を正確に特定</div>
+      </div>
+      <div class="hero-badge">
+        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
+        <div class="badge-text">楽天ID連携で多角的に分析</div>
+      </div>
+      <div class="hero-badge">
+        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
+        <div class="badge-text">最短2週間で結果納品</div>
+      </div>
+      <div class="hero-badge">
+        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
+        <div class="badge-text">専任担当がサポート</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -697,7 +819,7 @@
         </div>
       </div>
       <div class="method-visual">
-        <img src="method01.png" alt="広告接触者・非接触者の比較図" style="width:100%; max-width:480px; display:block; margin:0 auto;">
+        <img src="method01.png" alt="広告接触者・非接触者の比較図" style="width:100%; max-width:800px; display:block; margin:0 auto;">
       </div>
     </div>
 
@@ -738,6 +860,42 @@
     <div class="method-block">
       <div>
         <p class="method-num">Method 02</p>
+        <h3 class="method-h">マルチデバイス対応と<br><strong>他媒体とのクロス比較</strong></h3>
+        <div class="method-body">
+          <p>TVer広告はPC・スマートフォン／タブレット・コネクテッドTVと幅広いデバイスで配信されます。デバイスを問わず広告接触者を正確に捕捉し、効果測定が可能です。</p>
+          <p>テレビCM・デジタル動画広告・SNS広告など他媒体との比較検証にも対応。メディアミックス戦略の最適化に向けた定量的な根拠を提供します。</p>
+        </div>
+        <div style="margin-top:24px; display:flex; flex-direction:column; gap:16px;">
+          <div>
+            <p style="font-size:12px; font-weight:700; color:#1a3794; margin-bottom:10px; letter-spacing:.05em;"><i class="fa-solid fa-display" style="margin-right:6px;"></i>計測対応デバイス</p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">💻 PC</span>
+              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">📱 スマートフォン／タブレット</span>
+              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">📺 コネクテッドTV</span>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:12px; font-weight:700; color:#1a3794; margin-bottom:10px; letter-spacing:.05em;"><i class="fa-solid fa-chart-bar" style="margin-right:6px;"></i>他媒体との比較対応</p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">テレビCM</span>
+              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">デジタル動画広告</span>
+              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">SNS広告</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="method-visual">
+        <div style="background:linear-gradient(135deg,#eef1f9 0%,#c8d4f0 100%); border-radius:12px; width:100%; max-width:800px; margin:0 auto; padding:40px 32px; text-align:center;">
+          <i class="fa-solid fa-tv" style="font-size:48px; color:#1a3794; display:block; margin-bottom:16px;"></i>
+          <p style="font-size:14px; font-weight:700; color:#1a3794;">PC ／ スマートフォン・タブレット ／ コネクテッドTV</p>
+          <p style="font-size:12px; color:#555; margin-top:8px;">全デバイスの広告接触者を統合して効果測定</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="method-block">
+      <div>
+        <p class="method-num">Method 03</p>
         <h3 class="method-h">楽天グループデータと<br><strong>連携した多角的な効果検証</strong></h3>
         <div class="method-body">
           <p>さらに、楽天インサイトが保有する大規模かつ高品質なモニターパネルを活用することで、信頼性の高い効果検証を実現。</p>
@@ -745,7 +903,21 @@
         </div>
       </div>
       <div class="method-visual">
-        <img src="method02.png" alt="楽天グループデータ連携による多角的効果検証イメージ" style="width:100%; max-width:480px; display:block; margin:0 auto;">
+        <div style="background:linear-gradient(135deg,#eef1f9 0%,#c8d4f0 100%); border-radius:12px; width:100%; max-width:800px; margin:0 auto; padding:36px 32px; text-align:center;">
+          <i class="fa-solid fa-database" style="font-size:40px; color:#1a3794; display:block; margin-bottom:16px;"></i>
+          <p style="font-size:14px; font-weight:700; color:#1a3794; margin-bottom:16px;">楽天グループデータ連携</p>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div style="background:#fff; border-radius:6px; padding:10px 16px; font-size:13px; font-weight:700; color:#333; display:flex; align-items:center; gap:10px;">
+              <i class="fa-solid fa-cart-shopping" style="color:#1a3794;"></i>購買データ → 購買リフト
+            </div>
+            <div style="background:#fff; border-radius:6px; padding:10px 16px; font-size:13px; font-weight:700; color:#333; display:flex; align-items:center; gap:10px;">
+              <i class="fa-solid fa-magnifying-glass" style="color:#1a3794;"></i>検索データ → サーチリフト
+            </div>
+            <div style="background:#fff; border-radius:6px; padding:10px 16px; font-size:13px; font-weight:700; color:#333; display:flex; align-items:center; gap:10px;">
+              <i class="fa-solid fa-globe" style="color:#1a3794;"></i>ウェブログ → 行動変容分析
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -823,6 +995,82 @@
   </div>
 </section>
 
+<!-- ========== FAQ ========== -->
+<section class="sec sec-gray">
+  <div class="container">
+    <div class="sec-head">
+      <span class="sec-en">FAQ</span>
+      <h2 class="sec-title">よくあるご質問</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; max-width:800px; margin:0 auto;">
+
+      <div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="padding:20px 24px; display:flex; gap:16px; align-items:flex-start;">
+          <span style="font-size:15px; font-weight:700; color:#1a3794; flex-shrink:0;">Q.</span>
+          <p style="font-size:15px; font-weight:700; color:#222;">費用はどれくらいかかりますか？</p>
+        </div>
+        <div style="padding:0 24px 20px 24px; display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--border);">
+          <span style="font-size:15px; font-weight:700; color:#aaa; flex-shrink:0;">A.</span>
+          <p style="font-size:14px; color:#444; line-height:1.8;">400,000円〜（税抜）。アウトプット内容や回収サンプル数によって費用が変動しますので、詳細はお問い合わせください。</p>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="padding:20px 24px; display:flex; gap:16px; align-items:flex-start;">
+          <span style="font-size:15px; font-weight:700; color:#1a3794; flex-shrink:0;">Q.</span>
+          <p style="font-size:15px; font-weight:700; color:#222;">納品物は何ですか？</p>
+        </div>
+        <div style="padding:0 24px 20px 24px; display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--border);">
+          <span style="font-size:15px; font-weight:700; color:#aaa; flex-shrink:0;">A.</span>
+          <div style="font-size:14px; color:#444; line-height:1.8;">
+            <p>以下の4点を納品します。</p>
+            <ul style="margin-top:8px; padding-left:20px; display:flex; flex-direction:column; gap:4px;">
+              <li>回答本調査ローデータ（CSV形式）</li>
+              <li>単純集計表・クロス集計表（Excel形式）</li>
+              <li>集計ツール（楽天インサイト独自ツール）</li>
+              <li>レポート</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="padding:20px 24px; display:flex; gap:16px; align-items:flex-start;">
+          <span style="font-size:15px; font-weight:700; color:#1a3794; flex-shrink:0;">Q.</span>
+          <p style="font-size:15px; font-weight:700; color:#222;">サンプル数はどの程度確保できますか？</p>
+        </div>
+        <div style="padding:0 24px 20px 24px; display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--border);">
+          <span style="font-size:15px; font-weight:700; color:#aaa; flex-shrink:0;">A.</span>
+          <p style="font-size:14px; color:#444; line-height:1.8;">配信規模やターゲット条件に応じて調査設計が可能です。詳細はご相談ください。</p>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="padding:20px 24px; display:flex; gap:16px; align-items:flex-start;">
+          <span style="font-size:15px; font-weight:700; color:#1a3794; flex-shrink:0;">Q.</span>
+          <p style="font-size:15px; font-weight:700; color:#222;">調査票の設計も相談できますか？</p>
+        </div>
+        <div style="padding:0 24px 20px 24px; display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--border);">
+          <span style="font-size:15px; font-weight:700; color:#aaa; flex-shrink:0;">A.</span>
+          <p style="font-size:14px; color:#444; line-height:1.8;">可能です。目的に応じて設問設計をご提案します。</p>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="padding:20px 24px; display:flex; gap:16px; align-items:flex-start;">
+          <span style="font-size:15px; font-weight:700; color:#1a3794; flex-shrink:0;">Q.</span>
+          <p style="font-size:15px; font-weight:700; color:#222;">配信〜納品までどれくらいかかりますか？</p>
+        </div>
+        <div style="padding:0 24px 20px 24px; display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--border);">
+          <span style="font-size:15px; font-weight:700; color:#aaa; flex-shrink:0;">A.</span>
+          <p style="font-size:14px; color:#444; line-height:1.8;">配信期間や条件によりますが、通常は広告配信終了の翌営業日から調査を開始します。調査開始からデータアップまでは最短3営業日で完了いたします。<br><span style="font-size:12px; color:#888;">※報告書作成は内容によって納品日数が変動いたします。</span></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ========== CONTACT FORM ========== -->
 <section class="sec contact-sec" id="contact">
   <div class="container">
@@ -832,9 +1080,10 @@
       <p class="sec-lead">TVer広告のブランドリフト調査に関するご相談・資料請求はこちらからお気軽にどうぞ。</p>
     </div>
 
-    <div class="form-wrap" style="text-align:center; padding: 48px 0;">
-      <p style="font-size:1.05rem; color:#444; margin-bottom:32px;">下記ボタンよりお気軽にお問い合わせください。</p>
-      <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-primary" style="font-size:1.1rem; padding:18px 48px;">お問い合わせ・資料請求はこちら</a>
+    <div class="cta-banner">
+      <p class="cta-catch">TVer広告の効果、数字で証明しませんか？</p>
+      <p class="cta-sub">ブランドリフト調査について、まずはお気軽にご相談ください。<br>資料請求・お見積もりも無料で承っています。</p>
+      <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-cta">お問い合わせ・資料請求はこちら</a>
     </div>
   </div>
 </section>
