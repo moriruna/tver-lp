@@ -128,34 +128,39 @@
     .hero {
       background: var(--gray-light);
       border-bottom: 1px solid var(--border);
-      padding: 64px 40px;
+      padding: 72px 40px;
       position: relative;
       overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
     }
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: 0; top: 0; bottom: 0;
-      width: 44%;
-      background: linear-gradient(135deg, var(--gray-mid) 0%, #c8d4f0 100%);
-      clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
-    }
+    .hero::after { display: none; }
     .hero-inner {
       max-width: 960px;
+      width: 100%;
       margin: 0 auto;
       position: relative;
       z-index: 1;
-      display: flex;
-      align-items: center;
-      gap: 48px;
     }
-    .hero-left { flex: 1; min-width: 0; }
+    .hero-left {
+      max-width: 52%;
+    }
     .hero-right {
-      width: 280px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 52%;
+      overflow: hidden;
+    }
+    .hero-right::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 160px;
+      background: linear-gradient(to right, var(--gray-light), transparent);
+      z-index: 1;
     }
     .hero-badge {
       background: rgba(255,255,255,0.9);
@@ -229,15 +234,15 @@
       flex-wrap: wrap;
       gap: 0;
       margin-bottom: 36px;
-      max-width: 560px;
+      max-width: 480px;
       border: 1px solid var(--border);
-      background: var(--border);
+      background: var(--white);
     }
     .hero-toc a {
       background: var(--white);
       border: none;
       font-size: 13px;
-      padding: 10px 20px;
+      padding: 10px 16px;
       color: var(--navy);
       font-weight: bold;
       text-decoration: none;
@@ -245,7 +250,7 @@
       align-items: center;
       gap: 6px;
       transition: background 0.15s;
-      flex: 1;
+      white-space: nowrap;
     }
     .hero-toc a::before {
       content: "▼";
@@ -392,7 +397,9 @@
     .method-visual {
       background: var(--gray-light);
       border: 1px solid var(--border);
-      padding: 28px 24px;
+      padding: 16px;
+      max-width: 720px;
+      margin: 0 auto;
     }
     .vs-row {
       display: flex;
@@ -745,22 +752,7 @@
       <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-primary">お問い合わせ・資料請求</a>
     </div>
     <div class="hero-right">
-      <div class="hero-badge">
-        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
-        <div class="badge-text">広告接触者を正確に特定</div>
-      </div>
-      <div class="hero-badge">
-        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
-        <div class="badge-text">楽天ID連携で多角的に分析</div>
-      </div>
-      <div class="hero-badge">
-        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
-        <div class="badge-text">最短2週間で結果納品</div>
-      </div>
-      <div class="hero-badge">
-        <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
-        <div class="badge-text">専任担当がサポート</div>
-      </div>
+      <img src="https://insight.rakuten.co.jp/assets/images/digital_marketing/top/kv.jpg.webp" alt="楽天インサイト ブランドリフト調査" style="width:100%; height:100%; object-fit:cover; object-position:left center; display:block;">
     </div>
   </div>
 </section>
@@ -819,7 +811,7 @@
         </div>
       </div>
       <div class="method-visual">
-        <img src="method01.png" alt="広告接触者・非接触者の比較図" style="width:100%; max-width:800px; display:block; margin:0 auto;">
+        <img src="method01.png" alt="広告接触者・非接触者の比較図" style="width:80%; max-width:640px; display:block; margin:0 auto;">
       </div>
     </div>
 
@@ -865,31 +857,9 @@
           <p>TVer広告はPC・スマートフォン／タブレット・コネクテッドTVと幅広いデバイスで配信されます。デバイスを問わず広告接触者を正確に捕捉し、効果測定が可能です。</p>
           <p>テレビCM・デジタル動画広告・SNS広告など他媒体との比較検証にも対応。メディアミックス戦略の最適化に向けた定量的な根拠を提供します。</p>
         </div>
-        <div style="margin-top:24px; display:flex; flex-direction:column; gap:16px;">
-          <div>
-            <p style="font-size:12px; font-weight:700; color:#1a3794; margin-bottom:10px; letter-spacing:.05em;"><i class="fa-solid fa-display" style="margin-right:6px;"></i>計測対応デバイス</p>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">💻 PC</span>
-              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">📱 スマートフォン／タブレット</span>
-              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">📺 コネクテッドTV</span>
-            </div>
-          </div>
-          <div>
-            <p style="font-size:12px; font-weight:700; color:#1a3794; margin-bottom:10px; letter-spacing:.05em;"><i class="fa-solid fa-chart-bar" style="margin-right:6px;"></i>他媒体との比較対応</p>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">テレビCM</span>
-              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">デジタル動画広告</span>
-              <span style="background:#eef1f9; border-radius:20px; padding:5px 14px; font-size:12px; font-weight:700; color:#1a3794;">SNS広告</span>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="method-visual">
-        <div style="background:linear-gradient(135deg,#eef1f9 0%,#c8d4f0 100%); border-radius:12px; width:100%; max-width:800px; margin:0 auto; padding:40px 32px; text-align:center;">
-          <i class="fa-solid fa-tv" style="font-size:48px; color:#1a3794; display:block; margin-bottom:16px;"></i>
-          <p style="font-size:14px; font-weight:700; color:#1a3794;">PC ／ スマートフォン・タブレット ／ コネクテッドTV</p>
-          <p style="font-size:12px; color:#555; margin-top:8px;">全デバイスの広告接触者を統合して効果測定</p>
-        </div>
+        <img src="method02_device.png" alt="計測可能媒体・デバイス" style="width:80%; max-width:640px; display:block; margin:0 auto;">
       </div>
     </div>
 
@@ -903,11 +873,12 @@
         </div>
       </div>
       <div class="method-visual">
-        <img src="method02.png" alt="楽天グループデータ連携による多角的効果検証イメージ" style="width:100%; max-width:800px; display:block; margin:0 auto;">
+        <img src="method02.png" alt="楽天グループデータ連携による多角的効果検証イメージ" style="width:80%; max-width:640px; display:block; margin:0 auto;">
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- ========== FLOW ========== -->
 <section class="sec sec-gray" id="flow">
@@ -975,7 +946,7 @@
       <div class="strength-item">
         <p class="strength-label">Support</p>
         <h3>柔軟な調査設計とサポート</h3>
-        <p>中小代理店様でも安心。専任担当がキャンペーン内容に合わせた調査設計から納品までワンストップでサポートします。</p>
+        <p>これまで調査を実施したことがない方でも安心。専任担当がキャンペーン内容に合わせた調査設計から納品までワンストップでサポートします。</p>
       </div>
     </div>
   </div>
