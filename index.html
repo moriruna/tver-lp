@@ -242,24 +242,25 @@
     }
     .hero-toc {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 0;
       margin-bottom: 36px;
-      max-width: 480px;
+      max-width: 560px;
       border: 1px solid var(--border);
       background: var(--white);
+      width: fit-content;
     }
     .hero-toc a {
       background: var(--white);
       border: none;
-      font-size: 13px;
-      padding: 10px 16px;
+      font-size: 11px;
+      padding: 10px 10px;
       color: var(--navy);
       font-weight: bold;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       transition: background 0.15s;
       white-space: nowrap;
     }
@@ -813,6 +814,7 @@
         <a href="#method">分析方法</a>
         <a href="#flow">ご利用の流れ</a>
         <a href="#strength">楽天インサイトの強み</a>
+        <a href="#faq">よくあるご質問</a>
       </div>
       <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-primary">お問い合わせ・資料請求</a>
     </div>
@@ -995,13 +997,13 @@
         <p class="strength-label">ID Coverage</p>
         <div class="strength-num">220万+</div>
         <h3>広告接触者の捕捉力</h3>
-        <p>cookieIDは220万、ADID/IDFAは170万を誇る（ユニークIDベース）。TVer広告接触者を高精度に特定します。<br><span class="data-note">※2024年1月現在</span></p>
+        <p>cookieIDは220万、ADID/IDFAは170万を誇る（ユニークIDベース）。TVer広告接触者を高精度に特定します。<br><span class="data-note">※2022年9月現在</span></p>
       </div>
       <div class="strength-item">
         <p class="strength-label">Speed</p>
         <div class="strength-num">最短5営業日</div>
         <h3>圧倒的なスピード</h3>
-        <p>調査票入稿から最短5営業日でお手元に回収データと集計表をご納品。スピーディな次回提案が可能になります。</p>
+        <p>調査票入稿から最短5営業日でお手元に回収データと集計表をご納品。スピーディーな次回提案が可能でございます。</p>
       </div>
       <div class="strength-item">
         <p class="strength-label">Data</p>
@@ -1018,7 +1020,7 @@
 </section>
 
 <!-- ========== FAQ ========== -->
-<section class="sec sec-gray">
+<section class="sec sec-gray" id="faq">
   <div class="container">
     <div class="sec-head">
       <span class="sec-en">FAQ</span>
@@ -1081,7 +1083,18 @@
       <div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden;">
         <div style="padding:20px 24px; display:flex; gap:16px; align-items:flex-start;">
           <span style="font-size:15px; font-weight:700; color:#1a3794; flex-shrink:0;">Q.</span>
-          <p style="font-size:15px; font-weight:700; color:#222;">配信〜納品までどれくらいかかりますか？</p>
+          <p style="font-size:15px; font-weight:700; color:#222;">広告配信が決まりましたがいつ相談すれば良いですか？</p>
+        </div>
+        <div style="padding:0 24px 20px 24px; display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--border);">
+          <span style="font-size:15px; font-weight:700; color:#aaa; flex-shrink:0;">A.</span>
+          <p style="font-size:14px; color:#444; line-height:1.8;">タグの設置が広告配信日までに必要でございます。タグの発行自体は1営業日で可能でございますので、設置にかかる時間を考慮いただきご相談くださいませ。</p>
+        </div>
+      </div>
+
+      <div style="background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden;">
+        <div style="padding:20px 24px; display:flex; gap:16px; align-items:flex-start;">
+          <span style="font-size:15px; font-weight:700; color:#1a3794; flex-shrink:0;">Q.</span>
+          <p style="font-size:15px; font-weight:700; color:#222;">アンケート配信〜納品までどれくらいかかりますか？</p>
         </div>
         <div style="padding:0 24px 20px 24px; display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--border);">
           <span style="font-size:15px; font-weight:700; color:#aaa; flex-shrink:0;">A.</span>
