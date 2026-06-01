@@ -88,12 +88,23 @@
     }
     .logo-rakuten .r-red { color: var(--red); }
     .logo-rakuten .r-navy { color: var(--navy); }
+    .logo-img { height: 28px; object-fit: contain; vertical-align: middle; }
+    .logo-x { color: #aaa; font-size: 14px; margin: 0 6px; font-weight: 400; }
+    .logo-sep { color: #ccc; font-size: 18px; margin: 0 10px; }
+    .logo-service { font-size: 13px; font-weight: 700; color: var(--navy); }
     .logo-sub {
       font-size: 11px;
       color: var(--gray);
       letter-spacing: 0.06em;
       border-left: 1px solid var(--border);
       padding-left: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .logo-img { height: 22px; }
+      .logo-x { font-size: 12px; margin: 0 4px; }
+      .logo-sep { font-size: 14px; margin: 0 6px; }
+      .logo-service { font-size: 11px; }
     }
 
     /* ========== PAGE NAV ========== */
@@ -723,25 +734,20 @@
 
       /* Hero */
       .hero {
-        padding: 36px 20px 220px;
+        padding: 36px 20px 36px;
         min-height: auto;
         display: block;
       }
-      .hero-inner { position: relative; }
+      .hero-inner { position: static; }
       .hero-left { max-width: 100%; }
       .hero-right {
-        position: absolute;
-        right: 0; left: 0; bottom: 0;
-        top: auto;
+        position: relative;
+        right: auto; left: auto; bottom: auto; top: auto;
         width: 100%;
         height: 200px;
+        margin-top: 24px;
       }
-      .hero-right::before {
-        width: 100%;
-        height: 60px;
-        top: 0; bottom: auto; left: 0;
-        background: linear-gradient(to bottom, var(--gray-light), transparent);
-      }
+      .hero-right::before { display: none; }
       .hero h1 { font-size: 22px; max-width: 100%; }
       .hero-sub { font-size: 13px; max-width: 100%; }
       .hero-toc { max-width: 100%; }
@@ -750,6 +756,7 @@
 
       /* 共通 */
       .sec { padding: 48px 20px; }
+      .container { padding: 0; }
       .solution-band { padding: 28px 20px; }
       .method-visual { max-width: 100%; }
       .cta-banner { padding: 36px 20px; border-radius: 8px; }
@@ -777,11 +784,11 @@
 <!-- ========== HEADER ========== -->
 <header>
   <div class="logo-wrap">
-    <img src="https://insight.rakuten.co.jp/assets/images/logo.svg" alt="Rakuten Insight" style="height:28px; object-fit:contain; vertical-align:middle;">
-    <span style="color:#aaa; font-size:14px; margin:0 6px; font-weight:400;">×</span>
-    <img src="tver_logo.png" alt="TVer" style="height:28px; object-fit:contain; vertical-align:middle;">
-    <span style="color:#ccc; font-size:18px; margin:0 10px;">|</span>
-    <span style="font-size:13px; font-weight:700; color:var(--navy);">広告効果測定サービス</span>
+    <img src="https://insight.rakuten.co.jp/assets/images/logo.svg" alt="Rakuten Insight" class="logo-img">
+    <span class="logo-x">×</span>
+    <img src="tver_logo.png" alt="TVer" class="logo-img">
+    <span class="logo-sep">|</span>
+    <span class="logo-service">広告効果測定サービス</span>
   </div>
   <div class="header-cta">
     <a href="https://insight.rakuten.co.jp/inq/" target="_blank" class="btn-header">お問い合わせ・資料請求</a>
